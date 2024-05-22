@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors'
 
 
 
@@ -10,7 +11,12 @@ import db from "./mongoC.js";
 const port = 4000;
 const app = express();
 dotenv.config();
-
+const corsOptions = {
+    origin: 'http://3.83.248.93:3000', // Replace with the allowed origin
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  };
+  
+  app.use(cors(corsOptions));
 app.use((_req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', '*');
