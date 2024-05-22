@@ -6,7 +6,7 @@ import db from "./mongoC.js";
 
 dotenv.config();
 
-const port = process.env.PORT || 4000;
+const port = 4000;
 const app = express();
 
 const corsOptions = {
