@@ -9,10 +9,14 @@ dotenv.config();
 const port = 4000;
 const app = express();
 
-const corsOptions = {
-  origin: 'http://3.83.248.93:3000', // Replace with the allowed origin
-  optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-};
+// const corsOptions = {
+//   origin: 'http://3.83.248.93:3000', // Replace with the allowed origin
+//   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+// };
+app.use(cors({
+    origin: '*', // Allow all origins
+    optionsSuccessStatus: 200
+  }));
 
 app.use(cors(corsOptions));
 
